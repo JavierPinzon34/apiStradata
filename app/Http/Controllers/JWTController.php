@@ -94,11 +94,11 @@ class JWTController extends Controller
     }
 
     /**
-     * Get user profile.
+     * Get the authenticated User.
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function profile()
+    public function me()
     {
         return response()->json(auth()->user());
     }

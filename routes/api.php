@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['api'])->group(function ($router) {
+
+
+Route::group(['middleware' => 'api'], function($router) {
     Route::get('/data', [DataController::class, 'index']);
     Route::get('/search/{id}', [DataController::class, 'search']);
 
@@ -24,5 +26,6 @@ Route::middleware(['api'])->group(function ($router) {
     Route::post('/login', [JWTController::class, 'login']);
     Route::post('/logout', [JWTController::class, 'logout']);
     Route::post('/refresh', [JWTController::class, 'refresh']);
-    Route::post('/profile', [JWTController::class, 'profile']);
+    Route::post('/me', [JWTController::class, 'me']);
 });
+
